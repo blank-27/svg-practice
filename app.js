@@ -43,23 +43,31 @@ const alpha = {
     73:i,74:j,75:k,76:l,77:m,78:n,79:o,80:p,81:q,82:r,83:s,84:t,85:u,86:v,87:w,88:x,89:y,90:z
 };
 
+function sortString(str){
+    var arr = str.split('');
+    var sorted = arr.sort();
+    return sorted.join('');
+  }
+
 
 const displayfunc = () => {
     const datat = document.querySelector('#vtext').value;
+    const val=sortString(datat);
+    console.log(val);   
     for(let i=65;i<91;i++){
     document.querySelector(`#${alpha[i].id}`).style.display ='none';
     }
     let innerHtm = ``;
     let j =0;
     for(let i =65;i<91;i++){
-        if(alpha[i].id===datat[j]){
+        if(alpha[i].id===val[j]){
             console.log(datat[j]);
             console.log(alpha[i]);
             innerHtm+=alpha[i];
+            innerHtm+=' ';
             j++;
         }
     }
-
     document.querySelector('#logo').insertAdjacentHTML('beforebegin',innerHtm);
     
 }
