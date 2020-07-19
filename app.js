@@ -57,17 +57,22 @@ const displayfunc = () => {
     for(let i=65;i<91;i++){
     document.querySelector(`#${alpha[i].id}`).style.display ='none';
     }
-    let innerHtm = ``;
+    // let innerHtm = `
+    // <svg id="logo" width="100%" height="348" viewBox="0 0 1345 348" fill="none" xmlns="http://www.w3.org/2000/svg">`;
     let j =0;
     for(let i =65;i<91;i++){
         if(alpha[i].id===val[j]){
             console.log(datat[j]);
             console.log(alpha[i]);
-            innerHtm+=alpha[i];
-            innerHtm+=' ';
+            // innerHtm+=alpha[i];
+            // innerHtm+=' ';
+            // innerHtm = alpha[i];
+            document.querySelector(`#${datat[j]}`).style.display='block';
+            document.querySelector('.svg-main').insertAdjacentHTML('beforebegin',alpha[i]);
+            // document.querySelector(`#${datat[j]}`).style.display='flex';
             j++;
         }
     }
-    document.querySelector('#logo').insertAdjacentHTML('beforebegin',innerHtm);
+    // document.querySelector('.svg-main').insertAdjacentHTML('beforebegin',innerHtm);
     
 }
