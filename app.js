@@ -45,21 +45,35 @@ const alpha = {
 
 
 const displayfunc = () => {
-    const datat = document.querySelector('#vtext').value;
+    var datat = document.querySelector('#vtext').value;
+    
     for(let i=65;i<91;i++){
     document.querySelector(`#${alpha[i].id}`).style.display ='none';
     }
-    let innerHtm = ``;
+    let innerHtm = document.createElement('div');
+    innerHtm.setAttribute('class','logo')
+    // document.querySelector('#logo').insertAdjacentHTML('beforebegin',innerHtm);
     let j =0;
     for(let i =65;i<91;i++){
-        if(alpha[i].id===datat[j]){
-            console.log(datat[j]);
-            console.log(alpha[i]);
-            innerHtm+=alpha[i];
-            j++;
-        }
-    }
+        
+            // console.log(datat[j]);
+            // console.log(alpha[i]);
+            if(datat.indexOf(alpha[i].id)>=0)
+            document.querySelector(`#${alpha[i].id}`).style.display ='inline-block';
+            console.log(datat.indexOf(alpha[i].id))
 
-    document.querySelector('#logo').insertAdjacentHTML('beforebegin',innerHtm);
+
+            // console.log(datat.indexOf(alpha[i]))
+            // console.log(typeof(alpha[i].id))
+
+            
+            
+            // document.querySelectorAll('.logo').insertAdjacentHTML('beforebegin',alpha[i]);
+            // innerHtm.innerHTML+=alpha[i];
+            // j++;
+        
+    }
+    // console.log(innerHtm)
+    // document.querySelector('#logo').insertAdjacentHTML('beforebegin',innerHtm);
     
 }
